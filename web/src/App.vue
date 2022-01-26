@@ -1,11 +1,12 @@
 <template>
-  <div class="app">
+  <div class="app" style="color: #FFFFFF; text-align: center">
     <router-view/>
+
+
   </div>
 </template>
 
 <script>
-import axios from "axios";
 
 export default {
   name: 'App',
@@ -15,21 +16,10 @@ export default {
     }
   },
   methods: {
-    visit(){
-      axios.post('/project/user/checkLoginStatus')
-          .then((resp) => {
-            console.log(resp.data);
-            console.log(resp.data.userName);
-            if (resp.data.loginStatus === 'Y') {
-              this.$store.state.userInfo.userName = resp.data.userName;
-              console.log("session check success!" + resp.data.userName);
 
-            }
-          })
-    },
   },
   created() {
-    this.visit();
+
   }
 }
 </script>
